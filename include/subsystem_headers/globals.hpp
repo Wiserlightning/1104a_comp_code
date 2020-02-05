@@ -3,6 +3,13 @@
 #ifndef GLOBALS_HPP
 #define GLOBALS_HPP
 
+//Include Necessary Libraries
+#include <vector>
+
+//Initialization Variables
+extern std::vector<std::string> drive_modes;
+extern std::string selected_drive_mode;
+
 //Hardware Enums. and Misc.
 #define GRN_CART okapi::Motor::gearset::green
 #define RED_CART okapi::Motor::gearset::red
@@ -34,6 +41,8 @@
 #define DRV_L_BACK 20
 #define DRV_R_FRONT -9
 #define DRV_R_BACK -10
+
+extern okapi::Controller master_ctrler;
 
 extern okapi::Motor intake_lf;
 extern okapi::Motor intake_rt;
