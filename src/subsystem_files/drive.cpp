@@ -33,7 +33,7 @@ class drive_functions {
                     master_ctrler.getAnalog(JOY_LX),
                     2.5
                 );
-            //Otherwise if the mode is "tank"
+            //Otherwise if the mode is "TANK"
             } else if (selected_drive_mode == "TANK") {
                 //Control the chassis using tank with a deadband of 2.5.
                 drive_chassis->getModel()->tank(
