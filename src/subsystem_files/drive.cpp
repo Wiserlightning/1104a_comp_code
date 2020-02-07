@@ -23,6 +23,8 @@ class drive_functions {
     public:
         //Operator control for drive.
         void drive_op(void) {
+            //Set brake mode.
+            drive_chassis->getModel()->setBrakeMode(BRKE_COAST);
             //If the drive mode selected in initialization is "ARCADE"
             if (selected_drive_mode == "ARCADE") {
                 //Control the chassis using arcade with a deadband of 2.5.
