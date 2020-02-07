@@ -23,6 +23,8 @@ class drive_functions {
     public:
         //Operator control for drive.
         void drive_op(void) {
+            //Set brake mode.
+            drive_chassis->getModel()->setBrakeMode(BRKE_COAST);
             //If the drive mode selected in initialization is "ARCADE"
             if (selected_drive_mode == "ARCADE") {
                 //Control the chassis using arcade with a deadband of 2.5.
@@ -31,7 +33,7 @@ class drive_functions {
                     master_ctrler.getAnalog(JOY_LX),
                     2.5
                 );
-            //Otherwise if the mode is "tank"
+            //Otherwise if the mode is "TANK"
             } else if (selected_drive_mode == "TANK") {
                 //Control the chassis using tank with a deadband of 2.5.
                 drive_chassis->getModel()->tank(

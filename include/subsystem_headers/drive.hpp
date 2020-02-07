@@ -1,4 +1,6 @@
 //Start of header guard.
+#include "main.h"
+
 #ifndef DRIVE_HPP
 #define DRIVE_HPP
 

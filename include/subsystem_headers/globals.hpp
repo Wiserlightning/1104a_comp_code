@@ -6,6 +6,11 @@
 //Include Necessary Libraries
 #include <vector>
 
+//Important Constants
+#define ARM_TOWER_1 1000.0
+#define ARM_TOWER_2 2000.0
+#define TOWER_STACK 2500.0
+
 //Initialization Variables
 extern std::vector<std::string> drive_modes;
 extern std::string selected_drive_mode;
