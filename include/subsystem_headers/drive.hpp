@@ -14,6 +14,7 @@ extern class drive_functions {
     public:
         void drive_op(void);
         void drive_aut(std::string drive_path_id, bool drive_backwards, bool drive_mirrored, bool drive_async);
+        void drive_aut_reset(void);
 };
 
 //End of header gaurd.

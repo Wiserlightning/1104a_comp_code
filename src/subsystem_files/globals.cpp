@@ -3,11 +3,15 @@
 using namespace okapi;
 
 //Initialization Variables
-std::vector<std::string> drive_modes = {
-    "ARCADE",
-    "TANK"
+std::vector<std::string> autons = {
+    "RED",
+    "BLUE",
+    "ONE_PONT",
+    "SKILLS",
+    "AUT_TEST"
 };
-std::string selected_drive_mode;
+const int autons_vector_size = autons.size() - 1;
+std::string sel_auton;
 
 //Hardware Declarations
 Controller master_ctrler(ControllerId::master);

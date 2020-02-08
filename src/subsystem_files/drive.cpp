@@ -25,23 +25,12 @@ class drive_functions {
         void drive_op(void) {
             //Set brake mode.
             drive_chassis->getModel()->setBrakeMode(BRKE_COAST);
-            //If the drive mode selected in initialization is "ARCADE"
-            if (selected_drive_mode == "ARCADE") {
-                //Control the chassis using arcade with a deadband of 2.5.
-                drive_chassis->getModel()->arcade(
-                    master_ctrler.getAnalog(JOY_LY),
-                    master_ctrler.getAnalog(JOY_LX),
-                    2.5
-                );
-            //Otherwise if the mode is "TANK"
-            } else if (selected_drive_mode == "TANK") {
-                //Control the chassis using tank with a deadband of 2.5.
-                drive_chassis->getModel()->tank(
-                    master_ctrler.getAnalog(JOY_LY),
-                    master_ctrler.getAnalog(JOY_RY),
-                    2.5
-                );
-            }
+            //Control the chassis using arcade with a deadband of 2.5.
+            drive_chassis->getModel()->arcade(
+                master_ctrler.getAnalog(JOY_RY),
+                master_ctrler.getAnalog(JOY_RX),
+                2.5
+             );
         }
 
         //Autonomous control for drive.
@@ -53,5 +42,10 @@ class drive_functions {
                 //Wait for the controller to be settled.
                 chassis_controller->waitUntilSettled();
             }
+        }
+
+        void drive_aut_reset(void) {
+            drive_chassis->getModel()->resetSensors();
+            chassis_controller->reset();
         }
 }; 

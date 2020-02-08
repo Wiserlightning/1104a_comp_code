@@ -12,8 +12,9 @@
 #define TOWER_STACK 2500.0
 
 //Initialization Variables
-extern std::vector<std::string> drive_modes;
-extern std::string selected_drive_mode;
+extern std::vector<std::string> autons;
+extern const int autons_vector_size;
+extern std::string sel_auton;
 
 //Hardware Enums. and Misc.
 #define GRN_CART okapi::Motor::gearset::green
