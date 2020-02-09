@@ -17,7 +17,9 @@ class angler_functions {
             }
 
             if (angler_control_async == false) {
-                angler_controller->waitUntilSettled();
+                while (!(angler.getPosition() > angler_position - 5 && angler.getPosition() < angler_position + 5)) {
+                    pros::delay(1);
+                }
             }
         }
 

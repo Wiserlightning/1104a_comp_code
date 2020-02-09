@@ -14,13 +14,13 @@ class drive_functions {
             .withDimensions(GRN_CART, {{4_in, 10_in}, imev5GreenTPR})
             .build();
 
+    public:
         //Create an AsyncMotionProfileController with "drive_chassis" as the output chassis, with limits of 1.0 m/s, 2.0 m/s/s and 10.0 m/s/s/s.
         std::shared_ptr<AsyncMotionProfileController> chassis_controller = AsyncMotionProfileControllerBuilder()
             .withOutput(drive_chassis)
             .withLimits({1.0, 2.0, 10.0})
             .buildMotionProfileController();
-
-    public:
+        
         //Operator control for drive.
         void drive_op(void) {
             //Set brake mode.
