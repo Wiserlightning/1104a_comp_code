@@ -3,12 +3,9 @@
 #ifndef INTAKE_HPP
 #define INTAKE_HPP
 
-extern class intake_functions {
-    private:
-        std::shared_ptr<okapi::AsyncVelocityController<double, double>> intake_controller;
-    public:
-        void intake_op(void);
-        void intake_aut(int intake_velocity);
-};
+extern std::shared_ptr<okapi::AsyncVelocityController<double, double>> intake_controller;
+
+extern void intake_op(void);
+extern void intake_aut(int intake_velocity);
 
 #endif

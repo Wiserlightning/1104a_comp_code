@@ -4,9 +4,6 @@
 #include "subsystem_headers\intake.hpp"
 #include "subsystem_headers\globals.hpp"
 
-drive_functions drive;
-arm_functions arm_ctrl;
-angler_functions angler_ctrl;
 unsigned current_object;
 
 
@@ -17,9 +14,9 @@ void pre_init_reset(void) {
     arm.moveVelocity(-200);
     angler.moveVelocity(-200);
 
-    drive.drive_aut_reset();
-    arm_ctrl.arm_aut_reset();
-    angler_ctrl.angler_aut_reset();
+    drive_aut_reset();
+    arm_aut_reset();
+    angler_aut_reset();
     pros::delay(2000);
     pros::lcd::print(0, "PRE-INIT COMPLETE");
     pros::delay(1000);
@@ -66,10 +63,37 @@ void auton_selection(void) {
     pros::lcd::print(4, "FINAL AUTON: %s", sel_auton);
     pros::delay(2000);
     pros::lcd::clear();
+    pros::delay(2500);
+}
+
+void generate_paths(void) {
+    using namespace okapi;
+    pros::lcd::print(0, "GENERATING PATHS...");
+    if (sel_auton == "RED") {
+
+    } else if (sel_auton == "BLUE") {
+        
+    } else if (sel_auton == "ONE_POINT") {
+        chassis_controller->generatePath({
+            {0_in, 0_in, 0_deg},
+            {-2_ft, 0_ft, 0_deg},
+            {2_ft, 0_ft, 0_deg}
+        }, 
+        "ONE_POINT");
+        pros::delay(5000);
+    } else if (sel_auton == "SKILLS") {
+        
+    } else if (sel_auton == "AUT_TEST") {
+        
+    }
+    pros::lcd::print(0, "PATH GEN COMPLETE.");
+    pros::delay(1000);
+    pros::lcd::clear;
     pros::lcd::shutdown();
 }
 
 void initialize(void) {
     pre_init_reset();
     auton_selection();
+    generate_paths();
 }
