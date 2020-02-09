@@ -5,15 +5,11 @@
 #include "subsystem_headers\globals.hpp"
 
 //GLOBALS AND CONSTANTS
-drive_functions drive_ctrl;
-arm_functions arm_ctrl;
-angler_functions angler_ctrl;
-intake_functions intake_ctrl;
 
 //HELPER FUNCTIONS
 void flip_out(void) {
-    arm_ctrl.arm_aut(1500.0, false);
-    arm_ctrl.arm_aut(0.0, false);
+    arm_aut(1500.0, false);
+    arm_aut(0.0, false);
 }
 
 //MAIN FUNCTIONS
@@ -26,7 +22,7 @@ void blue(void) {
 }
 
 void one_point(void) {
-    drive_ctrl.drive_aut("ONE_POINT", false, false, false);
+    drive_aut("ONE_POINT", false, false, false);
     flip_out();
 }
 

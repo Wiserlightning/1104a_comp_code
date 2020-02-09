@@ -4,9 +4,6 @@
 #include "subsystem_headers\intake.hpp"
 #include "subsystem_headers\globals.hpp"
 
-drive_functions drive_ctrl;
-arm_functions arm_ctrl;
-angler_functions angler_ctrl;
 unsigned current_object;
 
 
@@ -17,9 +14,9 @@ void pre_init_reset(void) {
     arm.moveVelocity(-200);
     angler.moveVelocity(-200);
 
-    drive_ctrl.drive_aut_reset();
-    arm_ctrl.arm_aut_reset();
-    angler_ctrl.angler_aut_reset();
+    drive_aut_reset();
+    arm_aut_reset();
+    angler_aut_reset();
     pros::delay(2000);
     pros::lcd::print(0, "PRE-INIT COMPLETE");
     pros::delay(1000);
@@ -77,7 +74,7 @@ void generate_paths(void) {
     } else if (sel_auton == "BLUE") {
         
     } else if (sel_auton == "ONE_POINT") {
-        drive_ctrl.chassis_controller->generatePath({
+        chassis_controller->generatePath({
             {0_in, 0_in, 0_deg},
             {-2_ft, 0_ft, 0_deg},
             {2_ft, 0_ft, 0_deg}
