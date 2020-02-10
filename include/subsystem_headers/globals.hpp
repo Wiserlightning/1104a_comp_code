@@ -3,6 +3,19 @@
 #ifndef GLOBALS_HPP
 #define GLOBALS_HPP
 
+//Include Necessary Libraries
+#include <vector>
+
+//Important Constants
+#define ARM_TOWER_1 1000.0
+#define ARM_TOWER_2 2000.0
+#define TOWER_STACK 2500.0
+
+//Initialization Variables
+extern std::vector<std::string> autons;
+extern const int autons_vector_size;
+extern std::string sel_auton;
+
 //Hardware Enums. and Misc.
 #define GRN_CART okapi::Motor::gearset::green
 #define RED_CART okapi::Motor::gearset::red
@@ -34,6 +47,8 @@
 #define DRV_L_BACK 20
 #define DRV_R_FRONT -9
 #define DRV_R_BACK -10
+
+extern okapi::Controller master_ctrler;
 
 extern okapi::Motor intake_lf;
 extern okapi::Motor intake_rt;
